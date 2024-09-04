@@ -1,10 +1,10 @@
 const Home = () => {
   return (
-    <div className='mx-auto min-h-screen max-w-xl'>
-      <div className='flex justify-between gap-4'>
+    <div className='mx-auto max-w-xl px-2 py-6'>
+      <div className='flex justify-between gap-4 min-h-screen'>
         <div
           id='navigation-container'
-          className='sticky flex max-h-screen w-1/2 flex-col justify-between'
+          className='sticky flex top-0 max-h-screen w-1/2 flex-col py-20 justify-between'
         >
           <div>
             <h1>Marcos Gonzalez</h1>
@@ -23,7 +23,7 @@ const Home = () => {
             <li>linkedin</li>
           </ul>
         </div>
-        <div className='pt-24 w-1/2 '>
+        <div className='pt-24 w-1/2 py-20'>
           <div>About</div>
           <div>Experience</div>
           <div>Projects</div>
