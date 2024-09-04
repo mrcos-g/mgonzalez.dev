@@ -1,10 +1,10 @@
 const Home = () => {
   return (
-    <div className='mx-auto min-h-screen max-w-xl px-2 py-6'>
-      <div className='flex justify-between gap-4'>
+    <div className='mx-auto max-w-xl px-2 py-6'>
+      <div className='flex justify-between gap-4 min-h-screen'>
         <div
           id='navigation-container'
-          className='sticky top-0 flex max-h-screen w-1/2 flex-col justify-between py-20'
+          className='sticky flex top-0 max-h-screen w-1/2 flex-col py-20 justify-between'
         >
           <div>
             <h1>Marcos Gonzalez</h1>
