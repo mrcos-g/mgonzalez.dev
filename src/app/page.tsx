@@ -1,3 +1,5 @@
+import './globals.css';
+
 const Home = () => {
   return (
     <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
@@ -9,18 +11,25 @@ const Home = () => {
           <div>
             <h1 className='text-5xl pb-2 font-bold'>Marcos Gonzalez</h1>
             <h3 className='text-3xl pb-10'>Software Engineer</h3>
-            <p className='text-xl'>
+            <p className='text-xl pb-16'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
               deserunt cumque facilis ut eum, animi praesentium omnis fugit
               ipsam quia!
             </p>
-          </div>
-          <div>
-            <ul>
-              <li>About</li>
-              <li>Experience</li>
-              <li>Projects</li>
-            </ul>
+
+            <div className='w-1/4'>
+              <ul className='pl-10'>
+                <li>
+                  <span className='underline-hover'>About</span>
+                </li>
+                <li>
+                  <span className='underline-hover'>Experience</span>
+                </li>
+                <li>
+                  <span className='underline-hover'>Projects</span>
+                </li>
+              </ul>
+            </div>
           </div>
           <div id='social-links' className='flex space-x-5'>
             <svg
