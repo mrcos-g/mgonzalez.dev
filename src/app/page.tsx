@@ -1,4 +1,5 @@
 import './globals.css';
+import ScrollLink from './components/ScrollLink';
 
 const Home = () => {
   return (
@@ -20,13 +21,13 @@ const Home = () => {
             <div className='w-1/4'>
               <ul className='pl-10'>
                 <li>
-                  <span className='underline-hover'>About</span>
+                  <ScrollLink id='About'>About</ScrollLink>
                 </li>
                 <li>
-                  <span className='underline-hover'>Experience</span>
+                  <ScrollLink id='Experience'>Experience</ScrollLink>
                 </li>
                 <li>
-                  <span className='underline-hover'>Projects</span>
+                  <ScrollLink id='Projects'>Projects</ScrollLink>
                 </li>
               </ul>
             </div>
