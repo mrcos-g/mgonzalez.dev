@@ -18,19 +18,17 @@ const Home = () => {
               ipsam quia!
             </p>
 
-            <div className='w-1/4'>
-              <ul className='pl-10'>
-                <li>
-                  <ScrollLink id='About'>About</ScrollLink>
-                </li>
-                <li>
-                  <ScrollLink id='Experience'>Experience</ScrollLink>
-                </li>
-                <li>
-                  <ScrollLink id='Projects'>Projects</ScrollLink>
-                </li>
-              </ul>
-            </div>
+            <ul className='pl-10'>
+              <li>
+                <ScrollLink id='About'>About</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink id='Experience'>Experience</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink id='Projects'>Projects</ScrollLink>
+              </li>
+            </ul>
           </div>
           <div id='social-links' className='flex space-x-5'>
             <svg
