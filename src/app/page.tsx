@@ -1,3 +1,6 @@
+import './globals.css';
+import ScrollLink from './components/ScrollLink';
+
 const Home = () => {
   return (
     <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
@@ -9,17 +12,22 @@ const Home = () => {
           <div>
             <h1 className='text-5xl pb-2 font-bold'>Marcos Gonzalez</h1>
             <h3 className='text-3xl pb-10'>Software Engineer</h3>
-            <p className='text-xl'>
+            <p className='text-xl pb-16'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
               deserunt cumque facilis ut eum, animi praesentium omnis fugit
               ipsam quia!
             </p>
-          </div>
-          <div>
-            <ul>
-              <li>About</li>
-              <li>Experience</li>
-              <li>Projects</li>
+
+            <ul className='pl-10'>
+              <li>
+                <ScrollLink id='About'>About</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink id='Experience'>Experience</ScrollLink>
+              </li>
+              <li>
+                <ScrollLink id='Projects'>Projects</ScrollLink>
+              </li>
             </ul>
           </div>
           <div id='social-links' className='flex space-x-5'>
