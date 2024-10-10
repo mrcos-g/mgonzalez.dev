@@ -21,15 +21,31 @@ const ExperienceTile = () => {
           laboriosam totam ipsa assumenda illo rem error rerum facilis voluptas!
         </p>
         <div>
-          <ul>
-            <li>React</li>
-            <li>Material UI</li>
-            <li>Gatsby.js</li>
-            <li>Node.js</li>
-            <li>GraphQL</li>
-            <li>Postgres</li>
-            <li>AWS</li>
-            <li>Terraform</li>
+          <ul className='flex flex-wrap mt-3'>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              React
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              Material UI
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              Gatsby.js
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              Node.js
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              GraphQL
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              Postgres
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              AWS
+            </li>
+            <li className='rounded-full bg-gray-500 px-3 py-1 text-sm mr-1 mt-2'>
+              Terraform
+            </li>
           </ul>
         </div>
       </div>
