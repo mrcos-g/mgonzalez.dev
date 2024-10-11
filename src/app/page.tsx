@@ -1,7 +1,24 @@
-import './globals.css';
+'use client';
+
+import { FunctionComponent, useEffect, useState } from 'react';
+import ExperienceTile from './components/ExperienceTile';
 import ScrollLink from './components/ScrollLink';
 
-const Home = () => {
+import './globals.css';
+
+const Home: FunctionComponent = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/data/experiences.json');
+      const data = await response.json();
+      setExperiences(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
       <div className='flex justify-between gap-4'>
@@ -89,42 +106,7 @@ const Home = () => {
             sint eos temporibus quod repellendus rem? Maiores!
           </div>
           <div id='Experience' className='pb-20'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            nobis, minima, recusandae pariatur hic beatae, molestias optio et
-            consequuntur saepe inventore! Dolor eveniet deleniti labore dolorum
-            voluptatem nostrum nam accusamus maiores necessitatibus! Minus
-            consectetur aspernatur sunt dolorem ipsam culpa eligendi maxime
-            voluptate nam ducimus omnis sed voluptas officia, veritatis minima
-            temporibus a error pariatur tenetur. Totam eos alias voluptates
-            minima, suscipit in, repellendus magni incidunt facilis maxime
-            tempore quidem voluptas at exercitationem mollitia culpa dolor est
-            necessitatibus molestiae corrupti doloribus delectus. Architecto,
-            corrupti, delectus sequi repudiandae minus inventore reprehenderit
-            sit nostrum rerum excepturi, dolore quibusdam? Ratione est nam
-            pariatur asperiores veritatis temporibus, maxime ea dolores atque
-            saepe aspernatur nostrum! Alias quos itaque, quia deserunt
-            cupiditate necessitatibus, sapiente, consectetur ullam in enim
-            libero! Eveniet recusandae ipsa id, ab minus distinctio ullam eum
-            ipsum dignissimos minima blanditiis ad quam quas labore quis, soluta
-            doloribus incidunt, unde reprehenderit nesciunt harum. Vero qui
-            saepe distinctio ducimus, doloribus ex neque minima obcaecati optio
-            perferendis quos quod eaque asperiores eligendi accusamus. Aliquid
-            nam, sed est enim ratione voluptatum iure quis neque magni obcaecati
-            laborum distinctio non! Laudantium, voluptate nemo harum enim
-            corrupti molestiae esse blanditiis illum quisquam doloribus,
-            incidunt perspiciatis nostrum officiis quidem sequi mollitia
-            repellat ipsa optio adipisci odit. Labore officia molestias facilis
-            doloribus eligendi ipsum, quisquam omnis officiis dignissimos
-            voluptates sit porro mollitia voluptatum in! Possimus quaerat dicta
-            debitis similique unde vitae nesciunt repellat incidunt officiis
-            eius, officia assumenda enim, iure labore nemo error ea! Voluptate
-            amet facere error repellendus repudiandae tempore ad eveniet
-            deleniti exercitationem nobis officia soluta adipisci accusantium,
-            temporibus illum inventore. Earum in itaque recusandae nemo. Tenetur
-            facilis vero possimus iste quam error cumque, velit tempore maiores
-            dolore, in voluptate dignissimos praesentium rem aperiam incidunt a,
-            officia quisquam nisi pariatur odio. Numquam aut voluptate id, modi
-            dicta deserunt ex cum? Iste.
+            <ExperienceTile experiences={experiences} />
           </div>
           <div id='Projects'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
