@@ -1,8 +1,24 @@
-import './globals.css';
-import ScrollLink from './components/ScrollLink';
-import ExperienceTile from './components/ExperienceTile';
+'use client';
 
-const Home = () => {
+import { FunctionComponent, useEffect, useState } from 'react';
+import ExperienceTile from './components/ExperienceTile';
+import ScrollLink from './components/ScrollLink';
+
+import './globals.css';
+
+const Home: FunctionComponent = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/data/experiences.json');
+      const data = await response.json();
+      setExperiences(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
       <div className='flex justify-between gap-4'>
@@ -90,7 +106,7 @@ const Home = () => {
             sint eos temporibus quod repellendus rem? Maiores!
           </div>
           <div id='Experience' className='pb-20'>
-            <ExperienceTile />
+            <ExperienceTile experiences={experiences} />
           </div>
           <div id='Projects'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
