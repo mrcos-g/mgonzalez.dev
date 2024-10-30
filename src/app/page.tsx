@@ -20,7 +20,7 @@ const Home: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
+    <div className='mx-auto min-h-screen max-w-screen-xl p-5'>
       <div className='lg:flex lg:justify-between lg:gap-4'>
         <div
           id='navigation-container'
@@ -35,7 +35,7 @@ const Home: FunctionComponent = () => {
               ipsam quia!
             </p>
 
-            <ul className='pl-10'>
+            <ul className='hidden lg:block pl-10'>
               <li>
                 <ScrollLink id='About'>About</ScrollLink>
               </li>
