@@ -21,10 +21,10 @@ const Home: FunctionComponent = () => {
 
   return (
     <div className='mx-auto min-h-screen max-w-screen-xl px-2'>
-      <div className='flex justify-between gap-4'>
+      <div className='lg:flex lg:justify-between lg:gap-4'>
         <div
           id='navigation-container'
-          className='sticky top-0 flex max-h-screen w-1/2 flex-col justify-between py-24'
+          className='lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'
         >
           <div>
             <h1 className='text-5xl pb-2 font-bold'>Marcos Gonzalez</h1>
@@ -67,7 +67,7 @@ const Home: FunctionComponent = () => {
             </svg>
           </div>
         </div>
-        <div className='w-1/2 py-20'>
+        <div id='main-container' className='pt-24 lg:w-1/2 lg:py-24'>
           <div id='About' className='pb-20'>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
             voluptatibus maiores fugit porro ipsum temporibus consequatur
