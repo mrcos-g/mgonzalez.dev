@@ -17,20 +17,20 @@ const ExperienceTile: FunctionComponent<ExperienceTileProps> = ({
   experiences,
 }) => {
   return (
-    <div className='flex flex-col'>
+    <div>
       {experiences.map((experience, index) => (
-        <div key={index} className='flex mb-4'>
+        <div key={index} className='lg:flex mb-8'>
           <div className='flex-shrink-0 w-32'>
             <span>{`${experience.startYear} - ${experience.endYear}`}</span>
           </div>
-          <div className='flex-1 ml-4'>
+          <div className='flex-1 lg:ml-4'>
             <h4 className='font-bold'>
               <span>{experience.role}</span>
               <span> - </span>
               <span>{experience.company}</span>
             </h4>
             <p>{experience.description}</p>
-            <ul className='flex flex-wrap mt-3'>
+            <ul className='flex flex-wrap mt-1'>
               {experience.technologies.map((technology, techIndex) => (
                 <li
                   key={techIndex}
