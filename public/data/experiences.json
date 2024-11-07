@@ -2,17 +2,17 @@
   {
     "startYear": 2023,
     "endYear": 2024,
-    "role": "Software Developer",
-    "company": "Company",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a, debitis quisquam fugit sit quas veniam ducimus. Incidunt qui magnam placeat ducimus molestias ea totam facilis deserunt architecto neque, praesentium quae ex culpa, dolore commodi, reiciendis est eius obcaecati quidem dignissimos ipsum laudantium! Iusto et impedit",
-    "technologies": ["React", "Material UI", "Gatsby.js", "Node.js", "GraphQL", "Postgres", "AWS", "Terraform"]
+    "role": "Site Reliability Engineer",
+    "company": "OPENLANE (PAR North America)",
+    "description": "Led the migration of database monitoring to the cloud, reducing costs and completing OPENLANE’s cloud transition. Established Infrastructure as Code practices, creating consistent and scalable infrastructure across projects. Optimized CI/CD processes, improving deployment speed and reliability. Enhanced monitoring and incident response times, and coordinated production releases for seamless feature deployment",
+    "technologies": ["AWS", "Terraform", "Azure Devops", "Appdynamics", "Linux"]
   },
   {
-    "startYear": 2023,
-    "endYear": 2024,
+    "startYear": 2019,
+    "endYear": 2023,
     "role": "Software Developer",
-    "company": "Company",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a, debitis quisquam fugit sit quas veniam ducimus. Incidunt qui magnam placeat ducimus molestias ea totam facilis deserunt architecto neque, praesentium quae ex culpa, dolore commodi, reiciendis est eius obcaecati quidem dignissimos ipsum laudantium! Iusto et impedit",
-    "technologies": ["React", "Material UI", "Gatsby.js", "Node.js", "GraphQL", "Postgres", "AWS", "Terraform"]
+    "company": "Intelitics",
+    "description": "Developed and maintained high-quality, customizable landing pages for rapid deployment, enhancing flexibility and user engagement. Contributed to the team effort in rebuilding Intelitics’ flagship software with modern technologies, focusing on feature modernization and improved scalability. Led the initiative to codify the cloud infrastructure, automating resource creation with Terraform to streamline operations and support scalability",
+    "technologies": ["Typescript","React", "Material UI", "Gatsby.js", "Node.js", "GraphQL", "Postgres", "AWS", "Terraform", "Serverless"]
   }
 ]
