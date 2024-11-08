@@ -2,13 +2,13 @@
 import { MouseEvent, ReactNode, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-interface ScrollLingProps {
+interface ScrollLinkProps {
   id: string;
   children: ReactNode;
 }
 
 // https://glensea.com/article/how-to-create-scroll-links-to-navigate-to-specific-sections-of-an-spa-in-nextjs#implementation-example
-const ScrollLink: React.FC<ScrollLingProps> = ({ id, children }) => {
+const ScrollLink: React.FC<ScrollLinkProps> = ({ id, children }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
