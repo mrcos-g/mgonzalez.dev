@@ -1,0 +1,33 @@
+version: 2.1
+jobs:
+  lint:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm install
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+      - run:
+          command: npm run lint
+  test:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm run test
+
+workflows:
+  version: 2
+  test_and_lint:
+    jobs:
+      - lint
+      - test
