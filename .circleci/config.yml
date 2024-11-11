@@ -24,6 +24,15 @@ jobs:
           at: .
       - run:
           command: npm run test
+  build:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm run build
 
 workflows:
   version: 2
@@ -33,3 +42,7 @@ workflows:
       - test:
           requires:
             - lint
+      - build:
+          requires:
+            - lint
+            - test
