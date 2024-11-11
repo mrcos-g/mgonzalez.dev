@@ -30,4 +30,6 @@ workflows:
   test_and_lint:
     jobs:
       - lint
-      - test
+      - test:
+          requires:
+            - lint
