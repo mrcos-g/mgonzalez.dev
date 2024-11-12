@@ -59,10 +59,30 @@ jobs:
       - run:
           name: Deploy Project Artifacts to Vercel
           command: vercel deploy --prebuilt --token=$VERCEL_TOKEN
+  deploy_production:
+    docker:
+      - image: cimg/node:20.15
+        environment:
+          VERCEL_ORG_ID: $VERCEL_ORG_ID
+          VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: sudo install --global vercel@latest
+      - run:
+          name: Pull Vercel Environment Information
+          command: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      - run:
+          name: Build Project Artifacts
+          command: vercel build --prod --token=$VERCEL_TOKEN
+      - run:
+          name: Deploy Project Artifacts to Vercel
+          command: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
 
 workflows:
   version: 2
-  test_and_lint:
+  lint_test_deploy:
     jobs:
       - lint
       - test:
@@ -77,4 +97,11 @@ workflows:
           filters:
             branches:
               ignore:
+                - main
+      - deploy_production:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
                 - main
