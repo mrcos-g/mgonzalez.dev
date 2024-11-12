@@ -33,6 +33,22 @@ jobs:
           at: .
       - run:
           command: npm run build
+  deploy_preview:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install Vercel CLI
+          command: npm install --global vercel@latest
+      - run:
+          name: Pull Vercel Environment Information
+          command: vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+      - run:
+          name: Deploy to Vercel preview
+          command: vercel deploy --prebuilt --token=$VERCEL_TOKEN
 
 workflows:
   version: 2
@@ -44,5 +60,11 @@ workflows:
             - lint
       - build:
           requires:
-            - lint
             - test
+      - deploy_preview:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
