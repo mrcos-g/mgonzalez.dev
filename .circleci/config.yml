@@ -1,0 +1,107 @@
+version: 2.1
+jobs:
+  lint:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm install
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+      - run:
+          command: npm run lint
+  test:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm run test
+  build:
+    docker:
+      - image: cimg/node:20.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: npm run build
+  deploy_preview:
+    docker:
+      - image: cimg/node:20.15
+        environment:
+          VERCEL_ORG_ID: $VERCEL_ORG_ID
+          VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: sudo npm install --global vercel@latest
+      - run:
+          name: Debug Environment Variables
+          command: |
+            echo "VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID"
+            echo "VERCEL_ORG_ID=$VERCEL_ORG_ID"
+            echo "VERCEL_TOKEN=$VERCEL_TOKEN"
+      - run:
+          name: Pull Vercel Environment Information
+          command: vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+      - run:
+          name: Build Project Artifacts
+          command: vercel build --token=$VERCEL_TOKEN
+      - run:
+          name: Deploy Project Artifacts to Vercel
+          command: vercel deploy --prebuilt --token=$VERCEL_TOKEN
+  deploy_production:
+    docker:
+      - image: cimg/node:20.15
+        environment:
+          VERCEL_ORG_ID: $VERCEL_ORG_ID
+          VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: sudo install --global vercel@latest
+      - run:
+          name: Pull Vercel Environment Information
+          command: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      - run:
+          name: Build Project Artifacts
+          command: vercel build --prod --token=$VERCEL_TOKEN
+      - run:
+          name: Deploy Project Artifacts to Vercel
+          command: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+
+workflows:
+  version: 2
+  lint_test_deploy:
+    jobs:
+      - lint
+      - test:
+          requires:
+            - lint
+      - build:
+          requires:
+            - test
+      - deploy_preview:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
+      - deploy_production:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
